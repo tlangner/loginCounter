@@ -24,6 +24,8 @@ var UsersModels = function () {
     geddy.model.UsersModel.login(params.user, params.password,
       function loginCallBack(err, result){
 
+        console.log("reached loginCallBack function in usersmodel controller");
+
         self.respond(result);
 
       });
