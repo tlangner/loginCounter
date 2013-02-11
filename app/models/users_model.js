@@ -114,7 +114,6 @@ var UsersModel = function () {
       responseDict.result = "ALL TESTS FAILED";
     }
     callback(responseDict);
-    
 
   };
 
