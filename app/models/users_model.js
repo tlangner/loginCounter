@@ -19,12 +19,16 @@ var UsersModel = function () {
         console.log("reached loginCallBack in usersModel");
 
         if(!usersModel){
+          console.log("user does not exist");
           return {"errCode": -1};
         } else {
 
           usersModel.count +=1;
+          consile.log("found user and increased count");
+
           geddy.model.UsersModel.save(usersModel, 
             function(err, result){
+              console.log("saving new user count function call back");
               return {"errCode": 1, "count": usersModel.count};
             });
 
