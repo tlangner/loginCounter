@@ -7,7 +7,7 @@ var UsersModels = function () {
     var self = this;
 
     geddy.model.UsersModel.add(params.user, params.password, 
-      function addCallBack(err, result){
+      function addCallBack(result){
 
         self.respond(result);
 
@@ -22,7 +22,7 @@ var UsersModels = function () {
     var self = this;
 
     geddy.model.UsersModel.login(params.user, params.password,
-      function loginCallBack(err, result){
+      function loginCallBack(result){
 
         console.log("reached loginCallBack function in usersmodel controller");
 
@@ -36,7 +36,7 @@ var UsersModels = function () {
     var self = this;
 
     geddy.model.UsersModel.TESTAPI_resetFixture(
-      function TESTAPI_resetFixtureCallBack(err, result){
+      function TESTAPI_resetFixtureCallBack(result){
 
         self.respond(result);
 
