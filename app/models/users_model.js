@@ -108,7 +108,7 @@ var UsersModel = function () {
     responseDict.failed = failed;
     if(failed == 0){
       responseDict.result = "PASSED ALL TESTS!";
-    } else if (failed < (failed + passed){
+    } else if (failed < (failed + passed)){
       responseDict.result = "SOME TESTS FAILED";
     } else {
       responseDict.result = "ALL TESTS FAILED";
