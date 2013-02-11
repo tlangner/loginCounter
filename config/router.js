@@ -19,7 +19,15 @@
 
 var router = new geddy.RegExpRouter();
 
-router.get('/').to('Main.index');
+router.post('/user/add').to('UsersModels.add');
+router.post('/user/logic').to('UsersModels.login');
+router.post('/user/TESTAPI/resetFixture').to('UsersModels.TESTAPI_resetFixture');
+router.post('/user/TESTAPI/unitTests').to('UsersModels.TESTAPI_unitTests');
+
+
+
+
+
 
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');

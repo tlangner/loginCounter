@@ -7,6 +7,87 @@ var UsersModel = function () {
     count: {type: 'int'},
   });
 
+
+  this.login = function (userName,pswrd){
+
+    var self = this;
+
+    geddy.model.UsersModel.load({user: userName, password: pswrd},
+      function loginCallBack(err, usersModel){
+
+        if(!usersModel){
+          return {"errCode": -1};
+        } else {
+
+          usersModel.count +=1;
+          geddy.model.UsersModel.save(usersModel, 
+            function(err, result){
+              return {"errCode": 1, "count": usersModel.count};
+            });
+
+        }
+
+      });
+  }
+
+
+  this.add = function (userName, pswrd) {
+
+    var self = this;
+
+    geddy.model.UsersModel.load({user: userName},   
+      function addCallBack (err, usersModel){
+
+        //if user name does not already exist
+        if(!usersModel){
+          if(userName == "" || userName == null || userName.length > 128){
+
+            return {"errCode": -3};
+
+
+          } else if (pswrd.length > 128){
+
+            return {"errCode:": -4};
+
+          } else {
+            var newUser = geddy.model.UsersModel.create({user: userName, password: pswrd, count: 1});
+            geddy.model.UsersModel.save(newUser, 
+              function (err, result){
+                return {"errCode": 1, "count":1};
+              });
+
+          }
+
+
+        //if user name does already exist  
+        } else {
+
+          return {"errCode": -2};
+
+        }
+    });
+
+
+  };
+
+
+  this.TESTAPI_resetFixture = function(){
+
+    var self = this;
+
+    geddy.model.UsersModel.all(
+      function testAPICallBack(err, result){
+
+        console.log(result);
+
+    });
+
+  }
+
+
+
+
+
   /*
   this.property('login', 'string', {required: true});
   this.property('password', 'string', {required: true});

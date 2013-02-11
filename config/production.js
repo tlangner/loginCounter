@@ -20,7 +20,7 @@ var config = {
   detailedErrors: false
 , hostname: null
 , port: 4000
-, model: {
+/*, model: {
     defaultAdapter: 'mongo'
   }
 , db: {
@@ -33,21 +33,21 @@ var config = {
     , port: 27017
     }
   }
-
-/* // Using Postgres as the default, with only a Postgres DB
+*/
+ // Using Postgres as the default, with only a Postgres DB
 , model: {
     defaultAdapter: 'postgres'
   }
 , db: {
     postgres: {
       user: process.env.USER
-    , database: process.env.USER
-    , password: null
-    , host: null
+    , database: dcmrid6l05d41
+    , password: KX3lzT_BqMTZvNyKP-Qu-sC40u
+    , host: ec2-54-243-242-122.compute-1.amazonaws.com port=5432 user=vcinpdsfcolbib
     , port: 5432
     }
   }
-*/
+
 
 /* // Using Postgres as the default, with both Postgres and Riak
 , model: {
