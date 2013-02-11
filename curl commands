@@ -1,0 +1,13 @@
+curl commands
+
+curl -X POST -H "Content-Type: application/json" --data '{"user": "Bob", "password" : "125"}' http://morning-oasis-5790.herokuapp.com/users/login
+
+
+
+curl -X POST -H "Content-Type: application/json" --data '{"user": "Evan", "password" : "125"}' http://morning-oasis-5790.herokuapp.com/users/add
+
+
+curl -X POST -H "Content-Type: application/json" http://morning-oasis-5790.herokuapp.com/TESTAPI/resetFixture
+
+
+curl -X POST -H "Content-Type: application/json" http://morning-oasis-5790.herokuapp.com/TESTAPI/unitTests
