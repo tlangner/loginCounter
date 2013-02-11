@@ -9,10 +9,14 @@ var UsersModel = function () {
 
   this.login = function (userName,pswrd){
 
+    console.log("model login method called");
+
     var self = this;
 
     geddy.model.UsersModel.load({user: userName, password: pswrd},
       function loginCallBack(err, usersModel){
+
+        console.log("reached loginCallBack in usersModel");
 
         if(!usersModel){
           return {"errCode": -1};

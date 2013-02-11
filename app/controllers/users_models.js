@@ -17,6 +17,8 @@ var UsersModels = function () {
 
   this.login = function(req, resp, params){
 
+    console.log("reached login method in controller");
+
     var self = this;
 
     geddy.model.UsersModel.login(params.user, params.password,
@@ -27,7 +29,7 @@ var UsersModels = function () {
       });
   };
 
-  this.TESTAPI_resetFixture = function(){
+  this.TESTAPI_resetFixture = function(req, resp, params){
 
     var self = this;
 
@@ -39,13 +41,13 @@ var UsersModels = function () {
       });
   };
 
-  this.TESTAPI_unitTests = function(){
+  this.TESTAPI_unitTests = function(req, resp, params){
 
     var self = this;
 
     geddy.model.UsersModel.TESTAPI_unitTests(
       function(result){
-        self.response(result);
+        self.respond(result);
       });
   }
 
