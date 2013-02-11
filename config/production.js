@@ -40,10 +40,10 @@ var config = {
   }
 , db: {
     postgres: {
-      user: process.env.USER
-    , database: dcmrid6l05d41
-    , password: KX3lzT_BqMTZvNyKP-Qu-sC40u
-    , host: ec2-54-243-242-122.compute-1.amazonaws.com port=5432 user=vcinpdsfcolbib
+      user: "vcinpdsfcolbib"
+    , database: "dcmrid6l05d41"
+    , password: "KX3lzT_BqMTZvNyKP-Qu-sC40u"
+    , host: "ec2-54-243-242-122.compute-1.amazonaws.com"
     , port: 5432
     }
   }
