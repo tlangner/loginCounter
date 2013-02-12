@@ -1,5 +1,5 @@
 var UsersModels = function () {
-  this.respondsWith = ['html', 'json', 'xml', 'js', 'txt'];
+  this.respondsWith = ['json'];
 
 
   this.add = function(req, resp, params){
