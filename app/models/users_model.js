@@ -98,6 +98,8 @@ var UsersModel = function () {
 
         }
 
+        callback();
+
     });
 
   };

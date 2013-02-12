@@ -38,9 +38,9 @@ var UsersModels = function () {
     var self = this;
 
     geddy.model.UsersModel.TESTAPI_resetFixture(
-      function TESTAPI_resetFixtureCallBack(result){
+      function TESTAPI_resetFixtureCallBack(){
 
-        self.respond(result);
+        self.respond({"errCode": 1});
 
       });
   };
