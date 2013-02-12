@@ -88,9 +88,15 @@ var UsersModel = function () {
     var self = this;
 
     geddy.model.UsersModel.all(
-      function testAPICallBack(err, result){
+      function testAPICallBack(err, allUsers){
 
-        console.log(result);
+        //result is list of users (dictionaries)
+
+        for(var singleUser in allUsers){
+
+          geddy.model.UsersModel.remove(singleUser.id);
+
+        }
 
     });
 
