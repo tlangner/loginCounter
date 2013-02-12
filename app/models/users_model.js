@@ -38,23 +38,23 @@ var UsersModel = function () {
   };
 
 
-  this.add = function (userName, pswrd) {
+  this.add = function (userName, pswrd, callback) {
 
     var self = this;
 
     geddy.model.UsersModel.load({user: userName},   
-      function addCallBack (err, usersModel){
+      function addCallBack (usersModel){
 
         //if user name does not already exist
         if(!usersModel){
           if(userName == "" || userName == null || userName.length > 128){
 
-            return {"errCode": -3};
+            callback({"errCode": -3});
 
 
           } else if (pswrd.length > 128){
 
-            return {"errCode:": -4};
+            callback({"errCode:": -4});
 
           } else {
             var newUser = geddy.model.UsersModel.create({user: userName, password: pswrd, count: 1});
@@ -69,7 +69,7 @@ var UsersModel = function () {
         //if user name does already exist  
         } else {
 
-          return {"errCode": -2};
+          return callback({"errCode": -2});
 
         }
     });
