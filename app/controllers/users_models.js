@@ -9,6 +9,8 @@ var UsersModels = function () {
     geddy.model.UsersModel.add(params.user, params.password, 
       function addCallBack(result){
 
+        console.log("reached addCallBack function in controller - about to respond");
+
         self.respond(result);
 
       });
