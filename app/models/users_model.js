@@ -1,7 +1,7 @@
 var UsersModel = function () {
 
   this.defineProperties({
-    user: {type: 'string'},
+    username: {type: 'string'},
     password: {type: 'string'},
     count: {type: 'int'},
   });
