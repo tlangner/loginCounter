@@ -24,7 +24,7 @@ var UsersModel = function () {
         } else {
 
           usersModel.count +=1;
-          consile.log("found user and increased count");
+          console.log("found user and increased count");
 
           geddy.model.UsersModel.save(usersModel, 
             function(err, result){
