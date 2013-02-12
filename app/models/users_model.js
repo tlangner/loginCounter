@@ -7,7 +7,7 @@ var UsersModel = function () {
   });
 
 
-  this.login = function (userName,pswrd){
+  this.login = function (userName,pswrd, callback){
 
     console.log("model login method called");
 
@@ -20,7 +20,7 @@ var UsersModel = function () {
 
         if(!usersModel){
           console.log("user does not exist");
-          return {"errCode": -1};
+          callback({"errCode": -1});
         } else {
 
           usersModel.count +=1;
@@ -29,7 +29,7 @@ var UsersModel = function () {
           geddy.model.UsersModel.save(usersModel, 
             function(err, result){
               console.log("saving new user count function call back");
-              return {"errCode": 1, "count": usersModel.count};
+              callback({"errCode": 1, "count": usersModel.count});
             });
 
         }
