@@ -83,7 +83,7 @@ var UsersModel = function () {
   };
 
 
-  this.TESTAPI_resetFixture = function(){
+  this.TESTAPI_resetFixture = function(callback){
 
     var self = this;
 
