@@ -94,7 +94,7 @@ var UsersModel = function () {
 
         for(var singleUser in allUsers){
 
-          console.log(singleUser);
+          console.log("SINGLE USER = " + singleUser);
 
           geddy.model.UsersModel.remove(singleUser.id);
 
