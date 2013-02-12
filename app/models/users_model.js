@@ -92,9 +92,9 @@ var UsersModel = function () {
 
         //result is list of users (dictionaries)
 
-        console.log(allUsers);
-
         for(var singleUser in allUsers){
+
+          console.log(singleUser);
 
           geddy.model.UsersModel.remove(singleUser.id);
 
