@@ -59,7 +59,7 @@ var UsersModel = function () {
             callback({"errCode:": -4});
 
           } else {
-            var newUser = geddy.model.UsersModel.create({user: userName, password: pswrd, count: 1});
+            var newUser = geddy.model.UsersModel.create({username: userName, password: pswrd, count: 1});
             geddy.model.UsersModel.save(newUser, 
               function (err, result){
                 console.log("error! = " + err);
