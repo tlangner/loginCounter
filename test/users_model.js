@@ -12,6 +12,7 @@ tests = {
   	var password = Bobbob123;
   	UsersModel.add(userName,password,
   		function(result){
+  			console.log("addUserTestResult = " + result);
   			assert.equal(result, {"errCode": 1, "count":1})
   		});
   },
@@ -23,6 +24,8 @@ tests = {
   	var password = hello;
   	UsersModel.add(userName,password,
   		function(result){
+
+  			console.log("addDuplicateUserTestResult = " + result);
   			assert.equal(result, {"errCode": 1, "count":1})
   		});
 
@@ -32,7 +35,7 @@ tests = {
   		function(result){
   			assert.equal(result, {"errCode": -2});
   		});
-  	
+
   },
 
   'addEmptyUser': function(){
