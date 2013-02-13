@@ -44,21 +44,24 @@ var UsersModel = function () {
 
     var self = this;
 
-    geddy.model.UsersModel.load({username: userName},   
-      function addCallBack (err,usersModel){
 
-        //if user name does not already exist
-        if(!usersModel){
-          if(userName == "" || userName == null || userName.length > 128){
+    if(userName == "" || userName == null || userName.length > 128){
 
-            callback({"errCode": -3});
+      callback({"errCode": -3});
+
+    } else if (pswrd.length > 128){
+      
+      callback({"errCode": -4});
+
+    } else {
 
 
-          } else if (pswrd.length > 128){
+      geddy.model.UsersModel.load({username: userName},   
+        function addCallBack (err,usersModel){
 
-            callback({"errCode": -4});
+          //if user name does not already exist
+          if(!usersModel){
 
-          } else {
             var newUser = geddy.model.UsersModel.create({username: userName, password: pswrd, count: 1});
             geddy.model.UsersModel.save(newUser, 
               function (err, result){
@@ -69,15 +72,16 @@ var UsersModel = function () {
           }
 
 
-        //if user name does already exist  
-        } else {
+          //if user name does already exist  
+          } else {
 
-          console.log("user name already exists");
+            console.log("user name already exists");
 
-          callback({"errCode": -2});
+            callback({"errCode": -2});
 
-        }
-    });
+          }
+      });
+    }
 
 
   };
@@ -118,6 +122,15 @@ var UsersModel = function () {
       var tests = require('../../test/users_model.js');
       var failed = 0;
       var passed = 0;
+      var testNum = 0;
+
+
+      recursiveTester = function(callBack)
+
+
+
+
+
       for(var testName in tests){
         try{
           tests[testName]();
