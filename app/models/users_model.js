@@ -110,34 +110,39 @@ var UsersModel = function () {
 
   this.TESTAPI_unitTests = function(callback){
 
-    var self = this;
 
-    var tests = require('../../test/users_model.js');
-    var failed = 0;
-    var passed = 0;
-    for(var testName in tests){
-      try{
-        tests[testName]();
-        passed += 1;
-        console.log(testName + ": passed!");
-      } catch (exception){
-        console.log(testName + ": FAILED!");
-        failed +=1;
+    this.TESTAPI_resetFixture(function(){
+
+      var self = this;
+
+      var tests = require('../../test/users_model.js');
+      var failed = 0;
+      var passed = 0;
+      for(var testName in tests){
+        try{
+          tests[testName]();
+          passed += 1;
+          console.log(testName + ": passed!");
+        } catch (exception){
+          console.log(testName + ": FAILED!");
+          failed +=1;
+        }
       }
-    }
 
-    responseDict = {};
-    responseDict.total = failed + passed;
-    responseDict.passed = passed;
-    responseDict.failed = failed;
-    if(failed == 0){
-      responseDict.result = "PASSED ALL TESTS!";
-    } else if (failed < (failed + passed)){
-      responseDict.result = "SOME TESTS FAILED";
-    } else {
-      responseDict.result = "ALL TESTS FAILED";
-    }
-    callback(responseDict);
+      responseDict = {};
+      responseDict.total = failed + passed;
+      responseDict.passed = passed;
+      responseDict.failed = failed;
+      if(failed == 0){
+        responseDict.result = "PASSED ALL TESTS!";
+      } else if (failed < (failed + passed)){
+        responseDict.result = "SOME TESTS FAILED";
+      } else {
+        responseDict.result = "ALL TESTS FAILED";
+      }
+      callback(responseDict);
+
+    });
 
   };
 
