@@ -56,7 +56,7 @@ var UsersModel = function () {
 
           } else if (pswrd.length > 128){
 
-            callback({"errCode:": -4});
+            callback({"errCode": -4});
 
           } else {
             var newUser = geddy.model.UsersModel.create({username: userName, password: pswrd, count: 1});
