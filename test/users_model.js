@@ -27,14 +27,18 @@ tests = {
 
   			console.log("addDuplicateUserTestResult = " + result);
   			assert.deepEqual(result, {"errCode": 1, "count":1})
+
+
+			var userName = "travis";
+  			var password = "goodbye";
+  			UsersModel.add(userName,password,
+  				function(result){
+  				assert.deepEqual(result, {"errCode": -2});
+  			});
+
   		});
 
-  	var userName = "travis";
-  	var password = "goodbye";
-  	UsersModel.add(userName,password,
-  		function(result){
-  			assert.deepEqual(result, {"errCode": -2});
-  		});
+  
 
   },
 
