@@ -45,6 +45,10 @@ var UsersModel = function () {
     var self = this;
 
 
+    if(userName == null){
+      console.log("USERNAME IS NULL");
+    }
+
     if(userName == "" || userName == null || userName.length > 128){
 
       callback({"errCode": -3});
