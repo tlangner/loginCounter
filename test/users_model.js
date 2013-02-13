@@ -8,8 +8,8 @@ tests = {
   },
 
   'addUserTest': function(){
-  	var userName = tlangner;
-  	var password = Bobbob123;
+  	var userName = "tlangner";
+  	var password = "Bobbob123";
   	UsersModel.add(userName,password,
   		function(result){
   			console.log("addUserTestResult = " + result);
@@ -20,8 +20,8 @@ tests = {
   'addDuplicateUser': function(){
 
 
-    var userName = travis;
-  	var password = hello;
+    var userName = "travis";
+  	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
 
@@ -29,8 +29,8 @@ tests = {
   			assert.equal(result, {"errCode": 1, "count":1})
   		});
 
-  	var userName = travis;
-  	var password = goodbye;
+  	var userName = "travis";
+  	var password = "goodbye";
   	UsersModel.add(userName,password,
   		function(result){
   			assert.equal(result, {"errCode": -2});
@@ -40,7 +40,7 @@ tests = {
 
   'addEmptyUser': function(){
   	var userName = "";
-  	var password = hello;
+  	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
   			assert.equal(result, {"errCode": -3});
@@ -49,7 +49,7 @@ tests = {
 
   'addNullUser': function(){
   	var userName = null;
-  	var password = hello;
+  	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
   			assert.equal(result, {"errCode": -3});
@@ -61,9 +61,9 @@ tests = {
   	var userName = "";
 
   	for(var i = 0; i< 128; i++){
-  		userName += u;
+  		userName += "u";
   	}
-  	var password = hello;
+  	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
   			assert.equal(result, {"errCode": -3});
@@ -72,11 +72,11 @@ tests = {
   
   'addTooLongPW': function(){
 
-  	var userName = evanLayman;
+  	var userName = "evanLayman";
   	var password = "";
 
   	for(var i = 0; i< 128; i++){
-  		password += p;
+  		password += "p";
   	}
 
   	UsersModel.add(userName,password,
