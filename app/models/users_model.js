@@ -69,9 +69,6 @@ var UsersModel = function () {
                 callback ({"errCode": 1, "count":1});
               });
 
-          }
-
-
           //if user name does already exist  
           } else {
 
