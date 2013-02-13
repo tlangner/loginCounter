@@ -49,11 +49,13 @@ var UsersModel = function () {
       console.log("USERNAME IS NULL");
     }
 
-    if(userName == "" || userName == null || userName.length > 128){
+    if((userName == "") || 
+      (userName == null) || 
+      (userName.length > 128){
 
       callback({"errCode": -3});
 
-    } else if (pswrd.length > 128){
+    } else if(pswrd.length > 128){
       
       callback({"errCode": -4});
 
