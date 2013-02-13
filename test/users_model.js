@@ -64,7 +64,7 @@ tests = {
 
   	var userName = "";
 
-  	for(var i = 0; i< 128; i++){
+  	for(var i = 0; i< 129; i++){
   		userName += "u";
   	}
   	var password = "hello";
@@ -79,7 +79,7 @@ tests = {
   	var userName = "evanLayman";
   	var password = "";
 
-  	for(var i = 0; i< 128; i++){
+  	for(var i = 0; i< 129; i++){
   		password += "p";
   	}
 
