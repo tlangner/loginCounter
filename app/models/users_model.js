@@ -90,7 +90,7 @@ var UsersModel = function () {
     geddy.model.UsersModel.all(
       function testAPICallBack(err, allUsers){
 
-        //result is list of users (dictionaries)
+        //allUsers is list of users (dictionaries)
 
         for(var index in allUsers){
 
@@ -121,7 +121,7 @@ var UsersModel = function () {
       var testNum = 0;
 
 
-      recursiveTester = function(callBack)
+      //recursiveTester = function(callBack)
 
 
 
