@@ -44,7 +44,7 @@ var UsersModel = function () {
 
     var self = this;
 
-    geddy.model.UsersModel.load({username: userName, password: pswrd},   
+    geddy.model.UsersModel.load({username: userName},   
       function addCallBack (err,usersModel){
 
         //if user name does not already exist
