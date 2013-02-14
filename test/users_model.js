@@ -31,13 +31,6 @@ tests = {
 
   			console.log("addDuplicateUserTestResult = " + result);
 
-  			try{
-  				assert.deepEqual(result, {"errCode": 1, "count":1})
-  				callBack(1);
-  			} catch (err){
-  				callBack("addDuplicateUserTest FAILED; ");
-  			}
-
 			var userName = "travis";
   			var password = "goodbye";
   			UsersModel.add(userName,password,
@@ -143,13 +136,6 @@ tests = {
   	var password = "correctpassword";
   	UsersModel.add(userName,password,
   		function(result){
-
-  			try{
-  				assert.deepEqual(result, {"errCode": 1, "count":1})
-  				callBack(1);
-  			} catch (err){
-  				callBack("loginWithIncorrectPassword FAILED; ");
-  			}
 
   			var password2 = "wrongPassword";
   			UsersModel.login(userName,password2,
