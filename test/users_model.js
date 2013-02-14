@@ -43,10 +43,10 @@ tests = {
   			console.log("addDuplicateUserTestResult = " + result);
 
   			try{
-  				assert.deepEqual(result, {"errCode": 1, "count":1})
+  				assert.deepEqual(result, {"errCode": 1, "count":2})
   				callBack(1);
   			} catch (err){
-  				callBack("addDuplicateUserTest FAILED;");
+  				callBack("addDuplicateUserTest FAILED; ");
   			}
 
 			var userName = "travis";
@@ -58,7 +58,7 @@ tests = {
   						assert.deepEqual(result, {"errCode": -2});
   						callBack(1);
   					} catch (err){
-  						callBack("addDuplicateUserTest FAILED;");
+  						callBack("addDuplicateUserTest FAILED; ");
   					}
   			});
   		});
@@ -73,7 +73,7 @@ tests = {
   			assert.deepEqual(result, {"errCode": -3});
   				callBack(1);
   			} catch (err){
-  				callBack("addEmptyUserTest FAILED;");
+  				callBack("addEmptyUserTest FAILED; ");
   			}
   		});
   },
@@ -87,7 +87,7 @@ tests = {
   			assert.deepEqual(result, {"errCode": -3});
   				callBack(1);
   			} catch (err){
-  				callBack("addNullUserTest FAILED;");
+  				callBack("addNullUserTest FAILED; ");
   			}
   		});
   },
@@ -106,7 +106,7 @@ tests = {
   			assert.deepEqual(result, {"errCode": -3});
   				callBack(1);
   			} catch (err){
-  				callBack("addTooLongUserTest FAILED;");
+  				callBack("addTooLongUserTest FAILED; ");
   			}
   		});
   },
@@ -126,7 +126,7 @@ tests = {
   			assert.deepEqual(result, {"errCode": -4});
   				callBack(1);
   			} catch (err){
-  				callBack("addTooLongPasswordTest FAILED;");
+  				callBack("addTooLongPasswordTest FAILED; ");
   			}
   		});
   }
