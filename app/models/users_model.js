@@ -51,7 +51,7 @@ var UsersModel = function () {
 
     if((userName == "") || 
       (userName == null) || 
-      (userName.length > 128){
+      (userName.length > 128)){
 
       callback({"errCode": -3});
 
