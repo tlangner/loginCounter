@@ -93,6 +93,26 @@ tests = {
   		});
   },
   
+  'addUserName128Chars': function(callBack){
+
+  	var userName = "";
+
+  	for(var i = 0; i< 128; i++){
+  		userName += "j";
+  	}
+  	var password = "hello";
+  	UsersModel.add(userName,password,
+  		function(result){
+  			try{
+				assert.deepEqual(result, {"errCode": 1, "count":1});
+  				callBack(1);
+  			} catch (err){
+  				callBack("addTooLongUserTest FAILED; ");
+  			}
+  		});
+  },
+
+
   'addTooLongPW': function(callBack){
 
   	var userName = "evanLayman";
@@ -105,7 +125,27 @@ tests = {
   	UsersModel.add(userName,password,
   		function(result){
   			try{
-  			assert.deepEqual(result, {"errCode": -4});
+  				assert.deepEqual(result, {"errCode": -4});
+  				callBack(1);
+  			} catch (err){
+  				callBack("addTooLongPasswordTest FAILED; ");
+  			}
+  		});
+  },
+
+  'add128CharsPW': function(callBack){
+
+  	var userName = "Jeff";
+  	var password = "";
+
+  	for(var i = 0; i< 128; i++){
+  		password += "p";
+  	}
+
+  	UsersModel.add(userName,password,
+  		function(result){
+  			try{
+				assert.deepEqual(result, {"errCode": 1, "count":1});
   				callBack(1);
   			} catch (err){
   				callBack("addTooLongPasswordTest FAILED; ");
