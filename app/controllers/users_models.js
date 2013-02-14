@@ -9,8 +9,6 @@ var UsersModels = function () {
     geddy.model.UsersModel.add(params.user, params.password, 
       function addCallBack(result){
 
-        console.log("reached addCallBack function in controller - about to respond");
-
         self.respond(result);
 
       });
@@ -19,14 +17,10 @@ var UsersModels = function () {
 
   this.login = function(req, resp, params){
 
-    console.log("reached login method in controller");
-
     var self = this;
 
     geddy.model.UsersModel.login(params.user, params.password,
       function loginCallBack(result){
-
-        console.log("reached loginCallBack function in usersmodel controller");
 
         self.respond(result);
 

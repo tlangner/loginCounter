@@ -9,14 +9,10 @@ var UsersModel = function () {
 
   this.login = function (userName,pswrd, callback){
 
-    console.log("model login method called");
-
     var self = this;
 
     geddy.model.UsersModel.load({username: userName, password: pswrd},
       function loginCallBack(err, usersModel){
-
-        console.log("reached loginCallBack in usersModel");
 
         if(!usersModel){
           console.log("user does not exist");
@@ -24,11 +20,9 @@ var UsersModel = function () {
         } else {
 
           usersModel.count +=1;
-          console.log("found user and increased count");
 
           geddy.model.UsersModel.save(usersModel, 
             function(err, result){
-              console.log("saving new user count function call back");
               callback({"errCode": 1, "count": usersModel.count});
             });
 
@@ -77,8 +71,6 @@ var UsersModel = function () {
           //if user name does already exist  
           } else {
 
-            console.log("user name already exists");
-
             callback({"errCode": -2});
 
           }
@@ -99,7 +91,6 @@ var UsersModel = function () {
 
         for(var index in allUsers){
 
-          //console.log("SINGLE USER = " + singleUser);
           singleUser = allUsers[index];
 
           geddy.model.UsersModel.remove(singleUser.id);
@@ -128,13 +119,16 @@ var UsersModel = function () {
         totalTests++;
       }
 
-      //0 indicates fail, 1 indicates pass
+      var outputString = "";
+
+      //1 indicates pass, otherwise failed string goes in output
       function counterCallBack (passFail){
 
-        if(passFail == 0){
-          failed++;
-        } else {
+        if(passFail == 1){
           passed++;
+        } else {
+          failed++;
+          outputString += passFail;
         }
 
         if((failed + passed) == totalTests){
@@ -145,7 +139,7 @@ var UsersModel = function () {
           if(passed == totalTests){
             responseDict.output = "all tests passed!";
           } else {
-            responseDict.output = "some tests failed";
+            responseDict.output = outputString;
           }
 
           callback(responseDict);
