@@ -142,7 +142,7 @@ tests = {
   				function(result){
 
   					try{
-  						assert.deepEqual(result, {"errCode": -2});
+  						assert.deepEqual(result, {"errCode": -1});
   						callBack(1);
   					} catch (err){
   						callBack("loginWithIncorrectPassword FAILED; ");
