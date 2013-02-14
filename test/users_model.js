@@ -138,7 +138,7 @@ tests = {
   	var userName = "Jeff";
   	var password = "";
 
-  	for(var i = 0; i< 129; i++){
+  	for(var i = 0; i< 128; i++){
   		password += "p";
   	}
 
