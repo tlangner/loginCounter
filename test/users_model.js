@@ -107,7 +107,7 @@ tests = {
 				assert.deepEqual(result, {"errCode": 1, "count":1});
   				callBack(1);
   			} catch (err){
-  				callBack("addTooLongUserTest FAILED; ");
+  				callBack("addUserName128CharsTest FAILED; ");
   			}
   		});
   },
@@ -148,7 +148,7 @@ tests = {
 				assert.deepEqual(result, {"errCode": 1, "count":1});
   				callBack(1);
   			} catch (err){
-  				callBack("addTooLongPasswordTest FAILED; ");
+  				callBack("add128CharsPasswordTest FAILED; ");
   			}
   		});
   },
