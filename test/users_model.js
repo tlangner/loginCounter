@@ -3,17 +3,6 @@ var assert = require('assert')
   , UsersModel = geddy.model.UsersModel;
 
 tests = {
-  'addTests': function (callBack) {
-
-
-  	try{
-  		assert.equal(true, true);
-  		callBack(1);
-  	} catch (err){
-  		callBack(0);
-  	}
-    
-  },
 
   'addUserTest': function(callBack){
   	var userName = "tlangner";
@@ -23,7 +12,7 @@ tests = {
   			console.log("addUserTestResult = " + result);
 
   		  	try{
-				assert.deepEqual(result, {"errCode": 1, "count":2});
+				assert.deepEqual(result, {"errCode": 1, "count":1});
   				callBack(1);
   			} catch (err){
   				console.log("ERROR = " + err);
@@ -43,7 +32,7 @@ tests = {
   			console.log("addDuplicateUserTestResult = " + result);
 
   			try{
-  				assert.deepEqual(result, {"errCode": 1, "count":2})
+  				assert.deepEqual(result, {"errCode": 1, "count":1})
   				callBack(1);
   			} catch (err){
   				callBack("addDuplicateUserTest FAILED; ");
@@ -129,7 +118,52 @@ tests = {
   				callBack("addTooLongPasswordTest FAILED; ");
   			}
   		});
-  }
+  },
+
+  'loginWithNonExistentUser': function(callBack){
+
+  	var userName = "gregory";
+  	var password = "hello";
+
+  	UsersModel.add(userName,password,
+  		function(result){
+  			try{
+  			assert.deepEqual(result, {"errCode": -1});
+  				callBack(1);
+  			} catch (err){
+  				callBack("loginWithNonExistentUser FAILED; ");
+  			}
+  		});
+  },
+
+  'loginWithIncorrectPassword': function(callBack){
+
+    var userName = "Dustin";
+  	var password = "correctpassword";
+  	UsersModel.add(userName,password,
+  		function(result){
+
+  			try{
+  				assert.deepEqual(result, {"errCode": 1, "count":1})
+  				callBack(1);
+  			} catch (err){
+  				callBack("loginWithIncorrectPassword FAILED; ");
+  			}
+
+			var userName = "Dustin";
+  			var password = "wrongPassword";
+  			UsersModel.add(userName,password,
+  				function(result){
+
+  					try{
+  						assert.deepEqual(result, {"errCode": -1});
+  						callBack(1);
+  					} catch (err){
+  						callBack("loginWithIncorrectPassword FAILED; ");
+  					}
+  			});
+  		});
+  }  
 
 
 };
