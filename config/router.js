@@ -26,9 +26,6 @@ router.post('/TESTAPI/unitTests').to('UsersModels.TESTAPI_unitTests');
 
 
 
-
-
-
 // Basic routes
 // router.match('/moving/pictures/:id', 'GET').to('Moving.pictures');
 //

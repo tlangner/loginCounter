@@ -3,22 +3,36 @@ var assert = require('assert')
   , UsersModel = geddy.model.UsersModel;
 
 tests = {
-  'addTests': function () {
-    assert.equal(true, true);
+  'addTests': function (callBack) {
+
+
+  	try{
+  		assert.equal(true, true);
+  		callBack(1);
+  	} catch (err){
+  		callBack(0);
+  	}
+    
   },
 
-  'addUserTest': function(){
+  'addUserTest': function(callBack){
   	var userName = "tlangner";
   	var password = "Bobbob123";
   	UsersModel.add(userName,password,
   		function(result){
   			console.log("addUserTestResult = " + result);
-  			assert.deepEqual(result, {"errCode": 1, "count":2})
+
+  		  	try{
+				assert.deepEqual(result, {"errCode": 1, "count":2});
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
+
   		});
   },
 
-  'addDuplicateUser': function(){
-
+  'addDuplicateUser': function(callBack){
 
     var userName = "travis";
   	var password = "hello";
@@ -26,41 +40,58 @@ tests = {
   		function(result){
 
   			console.log("addDuplicateUserTestResult = " + result);
-  			assert.deepEqual(result, {"errCode": 1, "count":1})
 
+  			try{
+  				assert.deepEqual(result, {"errCode": 1, "count":1})
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
 
 			var userName = "travis";
   			var password = "goodbye";
   			UsersModel.add(userName,password,
   				function(result){
-  				assert.deepEqual(result, {"errCode": -2});
+
+  					try{
+  						assert.deepEqual(result, {"errCode": -2});
+  						callBack(1);
+  					} catch (err){
+  						callBack(0);
+  					}
   			});
-
   		});
-
-  
-
   },
 
-  'addEmptyUser': function(){
+  'addEmptyUser': function(callBack){
   	var userName = "";
   	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
+  			try{
   			assert.deepEqual(result, {"errCode": -3});
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
   		});
   },
 
-  'addNullUser': function(){
+  'addNullUser': function(callBack){
   	var userName = null;
   	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
+  			try{
   			assert.deepEqual(result, {"errCode": -3});
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
   		});
   },
 
-  'addTooLongUser': function(){
+  'addTooLongUser': function(callBack){
 
   	var userName = "";
 
@@ -70,11 +101,16 @@ tests = {
   	var password = "hello";
   	UsersModel.add(userName,password,
   		function(result){
+  			try{
   			assert.deepEqual(result, {"errCode": -3});
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
   		});
   },
   
-  'addTooLongPW': function(){
+  'addTooLongPW': function(callBack){
 
   	var userName = "evanLayman";
   	var password = "";
@@ -85,7 +121,12 @@ tests = {
 
   	UsersModel.add(userName,password,
   		function(result){
+  			try{
   			assert.deepEqual(result, {"errCode": -4});
+  				callBack(1);
+  			} catch (err){
+  				callBack(0);
+  			}
   		});
   }
 

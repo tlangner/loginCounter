@@ -123,38 +123,40 @@ var UsersModel = function () {
       var tests = require('../../test/users_model.js');
       var failed = 0;
       var passed = 0;
-      var testNum = 0;
+      var totalTests = 0;
+      for (var index in tests){
+        totalTests++;
+      }
 
+      //0 indicates fail, 1 indicates pass
+      function counterCallBack (passFail){
 
+        if(passFail == 0){
+          failed++;
+        } else {
+          passed++;
+        }
+
+        if((failed + passed) == totalTests){
+
+          responseDict = {};
+          responseDict.totalTests = totalTests;
+          responseDict.nrFailed = failed;
+          if(passed == totalTests){
+            responseDict.output = "all tests passed!";
+          } else {
+            responseDict.output = "some tests failed";
+          }
+
+          callback(responseDict);
+        }
+
+      };
       //recursiveTester = function(callBack)
 
-
-
-
-
       for(var testName in tests){
-        try{
-          tests[testName]();
-          passed += 1;
-          console.log(testName + ": passed!");
-        } catch (exception){
-          console.log(testName + ": FAILED!");
-          failed +=1;
-        }
+          tests[testName](counterCallBack);
       }
-
-      responseDict = {};
-      responseDict.total = failed + passed;
-      responseDict.passed = passed;
-      responseDict.failed = failed;
-      if(failed == 0){
-        responseDict.result = "PASSED ALL TESTS!";
-      } else if (failed < (failed + passed)){
-        responseDict.result = "SOME TESTS FAILED";
-      } else {
-        responseDict.result = "ALL TESTS FAILED";
-      }
-      callback(responseDict);
 
     });
 
