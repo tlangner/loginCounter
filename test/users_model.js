@@ -125,10 +125,11 @@ tests = {
   	var userName = "gregory";
   	var password = "hello";
 
-  	UsersModel.add(userName,password,
+
+  	UsersModel.login(userName,password,
   		function(result){
   			try{
-  			assert.deepEqual(result, {"errCode": -1});
+  				assert.deepEqual(result, {"errCode": -1});
   				callBack(1);
   			} catch (err){
   				callBack("loginWithNonExistentUser FAILED; ");
@@ -150,9 +151,8 @@ tests = {
   				callBack("loginWithIncorrectPassword FAILED; ");
   			}
 
-			var userName = "Dustin";
-  			var password = "wrongPassword";
-  			UsersModel.add(userName,password,
+  			var password2 = "wrongPassword";
+  			UsersModel.login(userName,password2,
   				function(result){
 
   					try{
