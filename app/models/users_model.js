@@ -71,7 +71,6 @@ var UsersModel = function () {
             var newUser = geddy.model.UsersModel.create({username: userName, password: pswrd, count: 1});
             geddy.model.UsersModel.save(newUser, 
               function (err, result){
-                console.log("error! = " + err);
                 callback ({"errCode": 1, "count":1});
               });
 

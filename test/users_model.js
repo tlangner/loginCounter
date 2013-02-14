@@ -13,7 +13,7 @@ tests = {
   	UsersModel.add(userName,password,
   		function(result){
   			console.log("addUserTestResult = " + result);
-  			assert.deepEqual(result, {"errCode": 1, "count":1})
+  			assert.deepEqual(result, {"errCode": 1, "count":2})
   		});
   },
 
