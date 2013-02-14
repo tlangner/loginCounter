@@ -26,6 +26,7 @@ tests = {
 				assert.deepEqual(result, {"errCode": 1, "count":2});
   				callBack(1);
   			} catch (err){
+  				console.log("ERROR = " + err);
   				callBack(0);
   			}
 
