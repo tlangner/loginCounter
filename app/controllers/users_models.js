@@ -34,6 +34,12 @@ var UsersModels = function () {
     });
   };
 
+
+  this.serverCall = funciton(req, resp, params){
+
+
+  };
+
   this.TESTAPI_resetFixture = function(req, resp, params){
 
     var self = this;

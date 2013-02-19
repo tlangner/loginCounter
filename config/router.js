@@ -22,6 +22,7 @@ var router = new geddy.RegExpRouter();
 router.get('/').to('UsersModels.homePage');
 router.post('/users/add').to('UsersModels.add');
 router.post('/users/login').to('UsersModels.login');
+router.post('/users/serverCall').to('UsersModels.serverCall');
 router.post('/TESTAPI/resetFixture').to('UsersModels.TESTAPI_resetFixture');
 router.post('/TESTAPI/unitTests').to('UsersModels.TESTAPI_unitTests');
 
