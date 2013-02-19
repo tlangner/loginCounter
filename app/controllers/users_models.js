@@ -39,11 +39,11 @@ var UsersModels = function () {
 
     if(params.button == 'login'){
 
-      this.add(req,resp,params);
+      this.login(req,resp,params);
 
     } else if (params.button == 'add'){
 
-      this.login(req,resp,params);
+      this.add(req,resp,params);
 
     }
 
