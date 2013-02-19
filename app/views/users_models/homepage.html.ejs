@@ -25,7 +25,9 @@
   </div>
 
   <div id="logout-buttons">
+    <form>
     <button id="logout-button" type="button" value="Logout" onclick="logoutClick()"></button>
+  </form>
   </div>
 
 
@@ -80,6 +82,7 @@ var logoutClick = function(){
 
   $('#logout-buttons').hide();
   $('#input-fields').show();
+  $('#welcome-message').show();
   $('#welcome-message').html("Please enter your credentials below");
 
 };
