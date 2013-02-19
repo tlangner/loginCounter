@@ -41,7 +41,13 @@
 $("#login").click(function(){
   username = $("#username");
   password = $("#password");
-  $.post(/users/login/, {user: username, password: password},handleloginresponse);
+  $.post("/users/login/", {user: username, password: password},handleloginresponse);
+});
+
+$("#add").click(function(){
+  username = $("#username");
+  password = $("#password");
+  $.post("/users/add/", {user: username, password: password},handleaddresponse);
 });
 
 
@@ -50,6 +56,10 @@ handleloginresponse = function(data){
   alert(data);
 
 };
+
+handleaddresponse = function(data){
+   alert(data);
+}
 
 </script>
 
