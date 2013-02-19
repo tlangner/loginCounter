@@ -27,6 +27,13 @@ var UsersModels = function () {
       });
   };
 
+  this.homePage = function (req, resp, params) {
+    this.respond(params, {
+      format: 'html'
+    , template: 'app/views/users_models/add'
+    });
+  };
+
   this.TESTAPI_resetFixture = function(req, resp, params){
 
     var self = this;
