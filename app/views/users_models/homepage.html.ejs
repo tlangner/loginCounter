@@ -18,7 +18,7 @@
       password: <input id="password" type="text" name="password" value="" ><br>
 
       <button id="login-button" type="button" value="Login" onclick="loginClick()"></button> 
-      <button id="add-button" type="button" value="Add" onclick="addClick()"></button>
+      <button id="add-button" type="button" value="Add User" onclick="addClick()"></button>
 
     </form>
     <center>
@@ -66,12 +66,26 @@ var addClick = function(){
   password = $("#password").val();
   $.post("/users/add/", {user: username, password: password}, 
     function(data){
-      console.log("reached handleaddresponse");
+
+      handleLoginResponse(username,data);
+
       //alert(data.errCode);
-      return false;
-    }, 'json');
+      }, 'json');
   return false;
 };
+
+var logoutClick = function(){
+
+  $('#logout-buttons').hide();
+  $('#input-fields').show();
+  $('#welcome-message').html("Please enter your credentials below");
+
+
+
+
+  return false;
+};
+
 
 var handleLoginResponse = function(user, data){
 
