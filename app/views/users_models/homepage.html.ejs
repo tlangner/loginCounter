@@ -53,6 +53,7 @@ $("#login").click(function(){
       console.log("reached handleloginresponse");
       alert(data.errCode);
       }, 'json');
+  return false;
 });
 
 $("#add").click(function(){
@@ -66,6 +67,7 @@ $("#add").click(function(){
 
       alert(data.errCode);
     }, 'json');
+  return false;
 });
 
 
