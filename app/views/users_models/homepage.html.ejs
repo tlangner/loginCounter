@@ -48,9 +48,7 @@ var loginClick = function(){
   $.post("/users/login/", {user: username, password: password}, 
     function(data){
 
-      if(data.errCode == 1){
-        loginCount = data.count;
-      }
+      handleLoginResponse(username,data);
 
       console.log("reached handleloginresponse");
       alert(data.errCode);
@@ -87,7 +85,11 @@ var handleLoginResponse = function(user, data){
     $('#login').hide();
     $('#add').hide();
 
-  } 
+  } else if(errCode == -1){
+
+    $('#welcome-message').html("errorCode -1");
+
+  }
 
 
 };
