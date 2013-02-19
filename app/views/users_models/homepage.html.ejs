@@ -47,7 +47,8 @@
 
 
 
-$("#login").click(function(){
+$("#login").click(function(e){
+  e.stopPropagation();
   console.log("login clicked");
   username = $("#username").val();
   password = $("#password").val();
@@ -58,7 +59,8 @@ $("#login").click(function(){
       }, 'json');
 });
 
-$("#add").click(function(){
+$("#add").click(function(e){
+  e.stopPropagation();
   console.log("add clicked");
   username = $("#username").val();
   password = $("#password").val();
