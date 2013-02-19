@@ -30,7 +30,7 @@ var UsersModels = function () {
   this.homePage = function (req, resp, params) {
     this.respond(params, {
       format: 'html'
-    , template: 'app/views/users_models/add'
+    , template: 'app/views/users_models/homepage'
     });
   };
 
