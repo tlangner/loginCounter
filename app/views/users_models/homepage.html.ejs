@@ -82,10 +82,6 @@ var logoutClick = function(){
   $('#input-fields').show();
   $('#welcome-message').html("Please enter your credentials below");
 
-
-
-
-  return false;
 };
 
 
@@ -105,7 +101,7 @@ var handleLoginResponse = function(user, data){
   } else if(errCode == -1){
 
     $('#welcome-message').show();
-    $('#welcome-message').html("errorCode -1");
+    $('#welcome-message').html("Invalid username and password combination. Please try again.");
     
 
   } else if(errCode == -2){
