@@ -17,14 +17,11 @@
       username: <input id="username" type="text" name="username" value="" ><br>
       password: <input id="password" type="text" name="password" value="" ><br>
 
+      <button id="login-button" type="submit" value="Login" onclick="loginClick()"></button> 
+      <button id="add-button" type="submit" value="Add" onclick="addClick()"></button>
+
     </form>
     <center>
-  </div>
-
-
-  <div id="loginadd-buttons">
-    <button id="login-button" type="submit" value="Login" onclick="loginClick()"></button> 
-    <button id="add-button" type="submit" value="Add" onclick="addClick()"></button>
   </div>
 
   <div id="logout-buttons">
@@ -88,7 +85,6 @@ var handleLoginResponse = function(user, data){
     $('#welcome-message').show();
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
     $('#logout-buttons').show();
-    $('#loginadd-buttons').hide();
     $('#input-fields').hide();
 
   } else if(errCode == -1){
