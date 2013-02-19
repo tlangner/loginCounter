@@ -24,7 +24,7 @@
     <center>
   </div>
 
-  <div id="logout-buttons" class="inputs">
+  <div id="logout-buttons">
     <center>
     <form>
     <button id="logout-button" type="button" value="Logout" onclick="logoutClick()"></button>
@@ -42,7 +42,7 @@ $(document).ready(function (response) {
   console.log("reached document.ready");
   document.getElementById("logout-button").style.visibility = "hidden";
   $('#welcome-message').html("Please enter your credentials below");
-  $('#logout-buttons').hide();
+  //$('#logout-buttons').hide();
 
 });
 
