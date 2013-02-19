@@ -69,7 +69,7 @@ var addClick = function(){
   $.post("/users/add/", {user: username, password: password}, 
     function(data){
 
-      handleLoginResponse(username,data);
+      handleAddResponse(username,data);
 
       //alert(data.errCode);
       }, 'json');
