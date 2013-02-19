@@ -1,24 +1,57 @@
 
+<div class="hero-unit">
+
+  <div id="welcome-message" class="hidden">
+    <legend>Welcome to the login app</legend>
+  </div>
+
+  <div id="error1-message" class="hidden">
+    <legend>error1</legend>
+  </div>
+
+  <div id="error2-message" class="hidden">
+    <legend>error1</legend>
+  </div>
+
+  <div id="error3-message" class="hidden">
+    <legend>error1</legend>
+  </div>
+
+  <div id="error4-message" class="hidden">
+    <legend>error1</legend>
+  </div>
+
+  username: <input id="username" type="text" name="username" value="" ><br>
+  password: <input id="password" type="text" name="password" value="" ><br>
 
 
 
+  <button id="login" type="button">Login</button> 
+  <button id="add" type="button">Add</button>
+
+
+</div>
+
+<script type="text/javascript">
+
+$("#login").click(function(){
+  username = $("#username");
+  password = $("#password");
+  $.post(/users/login/, {user: username, password: password},handleloginresponse);
+});
+
+
+handleloginresponse = function(data){
+
+  console.log(data);
+
+};
+
+</script>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="fuckyou">
+<!-- 
 
   <form id="usersModel-form" class="form-horizontal" action="/users/serverCall" method="POST">
     <fieldset>
@@ -41,4 +74,6 @@
       </div>
     </fieldset>
   </form>
-</div>
+ -->
+
+
