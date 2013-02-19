@@ -32,8 +32,8 @@
 
 
 
-  <button id="login" type="submit" value="Login"></button> 
-  <button id="add" type="button" value="Add"></button>
+  <button id="login" type="submit" value="Login" onclick="loginClick()"></button> 
+  <button id="add" type="submit" value="Add" onclick="addClick()"></button>
 
 </center>
 
@@ -44,7 +44,7 @@
 
 
 
-$("#login").click(function(){
+var loginClick = function(){
   console.log("login clicked");
   username = $("#username").val();
   password = $("#password").val();
@@ -57,7 +57,10 @@ $("#login").click(function(){
   return false;
 });
 
-$("#add").click(function(){
+
+// $("#add").click(function(){
+
+var addClick = function(){
   console.log("add clicked");
   username = $("#username").val();
   password = $("#password").val();
