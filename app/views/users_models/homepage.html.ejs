@@ -13,18 +13,23 @@
 
   username: <input id="username" type="text" name="username" value="" ><br>
   password: <input id="password" type="text" name="password" value="" ><br>
-  <button id="login" type="submit" value="Login" onclick="loginClick()"></button> 
-  <button id="add" type="submit" value="Add" onclick="addClick()"></button>
-  <button id="logout" type="submit" value="Logout" class="hidden" onclick="logoutClick()"></button>
+  <button id="login-button" type="submit" value="Login" onclick="loginClick()"></button> 
+  <button id="add-button" type="submit" value="Add" onclick="addClick()"></button>
+  <button id="logout-button" type="submit" value="Logout" onclick="logoutClick()"></button>
 
 
 </center>
 </div>
 
 <script type="text/javascript">
+$(document).ready(function (response) {
+  //Uncheck the inputs
+  $('#logout-button').hide();
+  
+});
 
 $('#welcome-message').hide();
-$('#logout').hide();
+$('#logout-button').hide();
 
 
 var loginClick = function(){
@@ -68,9 +73,9 @@ var handleLoginResponse = function(user, data){
     loginCount = data.count;
     $('#welcome-message').show();
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
-    $('#logout').show();
-    $('#login').hide();
-    $('#add').hide();
+    $('#logout-button').show();
+    $('#login-button').hide();
+    $('#add-button').hide();
 
   } else if(errCode == -1){
 
