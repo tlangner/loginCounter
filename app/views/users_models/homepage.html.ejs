@@ -39,7 +39,6 @@
 $(document).ready(function (response) {
   //Uncheck the inputs
   console.log("reached document.ready");
-  document.getElementById("logout-button").style.visibility = "hidden";
   $('#welcome-message').html("Please enter your credentials below");
   //$('#logout-buttons').hide();
 
@@ -80,10 +79,10 @@ var addClick = function(){
 var logoutClick = function(){
 
   console.log("logoutClicked");
-  // $('#input-fields').show();
-  // $('#welcome-message').show();
-  // $('#welcome-message').html("Please enter your credentials below");
-  // $('#logout-buttons').hide();
+  $('#input-fields').show();
+  $('#welcome-message').show();
+  $('#welcome-message').html("Please enter your credentials below");
+  $('#logout-buttons').hide();
 
   return false;
 
