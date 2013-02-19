@@ -47,8 +47,7 @@
 
 
 
-$("#login").click(function(e){
-  e.stopPropagation();
+$("#login").click(function(){
   console.log("login clicked");
   username = $("#username").val();
   password = $("#password").val();
@@ -57,10 +56,10 @@ $("#login").click(function(e){
       console.log("reached handleloginresponse");
       alert(String(data));
       }, 'json');
+  return false;
 });
 
-$("#add").click(function(e){
-  e.stopPropagation();
+$("#add").click(function(){
   console.log("add clicked");
   username = $("#username").val();
   password = $("#password").val();
@@ -71,6 +70,7 @@ $("#add").click(function(e){
 
       alert(data);
     }, 'json');
+  return false;
 });
 
 
