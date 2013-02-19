@@ -35,7 +35,17 @@ var UsersModels = function () {
   };
 
 
-  this.serverCall = funciton(req, resp, params){
+  this.serverCall = function (req, resp, params){
+
+    if(params.button == 'login'){
+
+      this.add(req,resp,params);
+
+    } else if (params.button == 'add'){
+
+      this.login(req,resp,params);
+
+    }
 
 
   };
