@@ -86,6 +86,7 @@ var handleLoginResponse = function(user, data){
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
     $('#logout-buttons').show();
     $('#login/add-buttons').hide();
+    $('#input-fields').hide();
 
   } else if(errCode == -1){
 
