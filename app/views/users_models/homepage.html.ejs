@@ -61,10 +61,10 @@ $("#add").click(function(){
   password = $("#password").val();
   $.post("/users/add/", {user: username, password: password}, 
 
-    function(String(data){
+    function(data){
       console.log("reached handleaddresponse");
 
-      alert(data);
+      alert(String(data));
     }, 'json');
 });
 
