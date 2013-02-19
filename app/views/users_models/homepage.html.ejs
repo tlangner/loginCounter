@@ -22,7 +22,7 @@
   </div>
 
 
-  <div id="login/add-buttons" class="buttons">
+  <div id="loginadd-buttons">
     <button id="login-button" type="submit" value="Login" onclick="loginClick()"></button> 
     <button id="add-button" type="submit" value="Add" onclick="addClick()"></button>
   </div>
@@ -88,7 +88,7 @@ var handleLoginResponse = function(user, data){
     $('#welcome-message').show();
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
     $('#logout-buttons').show();
-    $('#login/add-buttons').hide();
+    $('#loginadd-buttons').hide();
     $('#input-fields').hide();
 
   } else if(errCode == -1){
