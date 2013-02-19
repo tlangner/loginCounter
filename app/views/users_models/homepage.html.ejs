@@ -78,11 +78,10 @@ var handleLoginResponse = function(user, data){
 
 
   errCode = data.errCode;
-  count = 0;
   if(errCode == 1){
-    count = data.count;
-    $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+count+" times.");
+    loginCount = data.count;
     $('#welcome-message').show();
+    $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
     $('#logout').show();
     $('#login').hide();
     $('#add').hide();
