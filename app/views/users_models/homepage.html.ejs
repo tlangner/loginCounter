@@ -40,7 +40,7 @@ $(document).ready(function (response) {
   //Uncheck the inputs
   console.log("reached document.ready");
   $('#welcome-message').html("Please enter your credentials below");
-  //$('#logout-buttons').hide();
+  $('#logout-buttons').hide();
 
 });
 
@@ -83,6 +83,8 @@ var logoutClick = function(){
   $('#welcome-message').show();
   $('#welcome-message').html("Please enter your credentials below");
   $('#logout-buttons').hide();
+  $('#username').value="";
+  $('#password').value="";
 
   return false;
 
