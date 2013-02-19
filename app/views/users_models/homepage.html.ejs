@@ -51,7 +51,7 @@ $("#login").click(function(){
   $.post("/users/login/", {user: username, password: password}, 
     function(data){
       console.log("reached handleloginresponse");
-      alert(data.errCode;
+      alert(data.errCode);
       }, 'json');
 });
 
@@ -64,7 +64,7 @@ $("#add").click(function(){
     function(data){
       console.log("reached handleaddresponse");
 
-      alert(data.errCode;
+      alert(data.errCode);
     }, 'json');
 });
 
