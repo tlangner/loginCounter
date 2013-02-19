@@ -50,7 +50,6 @@ var loginClick = function(){
 
       handleLoginResponse(username,data);
 
-      console.log("reached handleloginresponse");
       alert(data.errCode);
       return false;
       }, 'json');
@@ -75,8 +74,11 @@ var addClick = function(){
 
 var handleLoginResponse = function(user, data){
 
+  console.log("reached handleloginresponse");
+
+
   errCode = data.errCode;
-  count;
+  count = 0;
   if(errCode == 1){
     count = data.count;
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+count+" times.");
@@ -88,6 +90,23 @@ var handleLoginResponse = function(user, data){
   } else if(errCode == -1){
 
     $('#welcome-message').html("errorCode -1");
+    $('#welcome-message').show();
+
+
+  } else if(errCode == -2){
+
+    $('#welcome-message').html("errorCode -2");
+    $('#welcome-message').show();
+
+  } else if(errCode == -3){
+
+    $('#welcome-message').html("errorCode -3");
+    $('#welcome-message').show();
+
+  } else if(errCode == -4){
+
+    $('#welcome-message').html("errorCode -4");
+    $('#welcome-message').show();
 
   }
 
