@@ -52,7 +52,7 @@ var handleaddresponse = function(data){
 $("#login").click(function(){
   username = $("#username");
   password = $("#password");
-  $.post("/users/login/", {user: username, password: password},handleloginresponse;
+  $.post("/users/login/", {user: username, password: password},handleloginresponse);
 });
 
 $("#add").click(function(){
