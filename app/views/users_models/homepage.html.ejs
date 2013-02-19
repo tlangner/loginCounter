@@ -29,7 +29,7 @@
 
 
 
-  <button id="login" onclick="boobies()" type="button">Login</button> 
+  <button id="login" type="button">Login</button> 
   <button id="add" type="button">Add</button>
 
 </center>
@@ -40,30 +40,32 @@
 <script type="text/javascript">
 
 
-var handleloginresponse = function(data){
-  console.log("reached handleloginresponse");
-  alert(data);
 
-};
 
-var handleaddresponse = function(data){
-    console.log("reached handleaddresponse");
 
-   alert(data);
-};
 
-function boobies(){
+$("#login").click(function(){
   console.log("login clicked");
   username = $("#username");
   password = $("#password");
-  $.post("/users/login/", {user: username, password: password}, handleloginresponse, 'json');
+  $.post("/users/login/", {user: username, password: password}, 
+    function(data){
+      console.log("reached handleloginresponse");
+      alert(data);
+    }, 'json');
 });
 
 $("#add").click(function(){
   console.log("add clicked");
   username = $("#username");
   password = $("#password");
-  $.post("/users/add/", {user: username, password: password}, handleaddresponse, 'json');
+  $.post("/users/add/", {user: username, password: password}, 
+
+    function(data){
+      console.log("reached handleaddresponse");
+
+      alert(data);
+    }, 'json');
 });
 
 
