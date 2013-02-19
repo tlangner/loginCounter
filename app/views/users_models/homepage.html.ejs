@@ -38,10 +38,21 @@
 
 <script type="text/javascript">
 
+
+var handleloginresponse = function(data){
+
+  alert(data);
+
+};
+
+var handleaddresponse = function(data){
+   alert(data);
+};
+
 $("#login").click(function(){
   username = $("#username");
   password = $("#password");
-  $.post("/users/login/", {user: username, password: password},handleloginresponse);
+  $.post("/users/login/", {user: username, password: password},handleloginresponse;
 });
 
 $("#add").click(function(){
@@ -50,16 +61,6 @@ $("#add").click(function(){
   $.post("/users/add/", {user: username, password: password},handleaddresponse);
 });
 
-
-handleloginresponse = function(data){
-
-  alert(data);
-
-};
-
-handleaddresponse = function(data){
-   alert(data);
-}
 
 </script>
 
