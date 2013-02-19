@@ -8,7 +8,7 @@
 <center>
 
   <div id="welcome-message" class="hidden">
-    <legend>Welcome to the login app</legend>
+    <legend>Welcome</legend>
   </div>
 
   <div id="error1-message" class="hidden">
@@ -16,28 +16,25 @@
   </div>
 
   <div id="error2-message" class="hidden">
-    <legend>error1</legend>
+    <legend>error2</legend>
   </div>
 
   <div id="error3-message" class="hidden">
-    <legend>error1</legend>
+    <legend>error3</legend>
   </div>
 
   <div id="error4-message" class="hidden">
-    <legend>error1</legend>
+    <legend>error4</legend>
   </div>
 
   username: <input id="username" type="text" name="username" value="" ><br>
   password: <input id="password" type="text" name="password" value="" ><br>
-
-
-
   <button id="login" type="submit" value="Login" onclick="loginClick()"></button> 
   <button id="add" type="submit" value="Add" onclick="addClick()"></button>
+  <button id="logout" type="submit" value="Logout" class="hidden" onclick="logoutClick()"></button>
+
 
 </center>
-
-
 </div>
 
 <script type="text/javascript">
@@ -50,6 +47,11 @@ var loginClick = function(){
   password = $("#password").val();
   $.post("/users/login/", {user: username, password: password}, 
     function(data){
+
+      if(data.errCode == 1){
+        loginCount = data.count;
+      }
+
       console.log("reached handleloginresponse");
       alert(data.errCode);
       return false;
@@ -65,14 +67,29 @@ var addClick = function(){
   username = $("#username").val();
   password = $("#password").val();
   $.post("/users/add/", {user: username, password: password}, 
-
     function(data){
       console.log("reached handleaddresponse");
-
       alert(data.errCode);
       return false;
     }, 'json');
   return false;
+};
+
+var handleLoginResponse = function(user, data){
+
+  errCode = data.errCode;
+  count;
+  if(errCode == 1){
+    count = data.count;
+    $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+count+" times.");
+    $('#welcome-message').show();
+    $('#logout').show();
+    $('#login').hide();
+    $('#add').hide();
+
+  } 
+
+
 };
 
 
