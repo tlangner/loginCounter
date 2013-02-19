@@ -3,7 +3,7 @@
 
 <html>
 <body>
-<div class="hero-unit">
+<div id="home" class="hero-unit">
 
 <center>
 
@@ -26,7 +26,7 @@ $(document).ready(function (response) {
   //Uncheck the inputs
   console.log("reached document.ready");
   document.getElementById("logout-button").style.visibility = "hidden";
-  //$('#logout-button').hide();
+  $('#home').hide();
   $('#welcome-message').html("Please enter your credentials below");
 
 });
