@@ -25,7 +25,7 @@
   </div>
 
   <div id="logout-buttons">
-    <button id="logout-button" type="submit" value="Logout" onclick="logoutClick()"></button>
+    <button id="logout-button" type="button" value="Logout" onclick="logoutClick()"></button>
   </div>
 
 
@@ -75,6 +75,8 @@ var addClick = function(){
 };
 
 var logoutClick = function(){
+
+  console.log("logoutClicked");
 
   $('#logout-buttons').hide();
   $('#input-fields').show();
