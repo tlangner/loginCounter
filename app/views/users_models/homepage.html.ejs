@@ -33,7 +33,7 @@ $(document).ready(function (response) {
   console.log("reached document.ready");
   document.getElementById("logout-button").style.visibility = "hidden";
   $('#welcome-message').html("Please enter your credentials below");
-  $('#logout_buttons').hide();
+  $('#logout-buttons').hide();
 
 });
 
@@ -79,9 +79,8 @@ var handleLoginResponse = function(user, data){
     loginCount = data.count;
     $('#welcome-message').show();
     $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
-    $('#logout-button').show();
-    $('#login-button').hide();
-    $('#add-button').hide();
+    $('#logout-buttons').show();
+    $('#login/add-buttons').hide();
 
   } else if(errCode == -1){
 
