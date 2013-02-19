@@ -108,26 +108,41 @@ var handleLoginResponse = function(user, data){
 
     $('#welcome-message').show();
     $('#welcome-message').html("Invalid username and password combination. Please try again.");
-    
+  }
+
+};
+
+
+var handleAddResponse = function(user, data){
+
+  console.log("reached handleloginresponse");
+
+
+  errCode = data.errCode;
+  if(errCode == 1){
+    loginCount = data.count;
+    $('#welcome-message').show();
+    $('#welcome-message').html("Welcome "+user+"<br>You have logged in "+loginCount+" times.");
+    $('#logout-buttons').show();
+    $('#input-fields').hide();
 
   } else if(errCode == -2){
 
     $('#welcome-message').show();
-    $('#welcome-message').html("errorCode -2");
-
+    $('#welcome-message').html("This user name already exists. Please try again.");
   } else if(errCode == -3){
 
     $('#welcome-message').show();
-    $('#welcome-message').html("errorCode -3");
-
+    $('#welcome-message').html("The user name should be non-empty and at most 128 characters long. Please try again.");
   } else if(errCode == -4){
 
     $('#welcome-message').show();
-    $('#welcome-message').html("errorCode -4");
-
+    $('#welcome-message').html("The password should be at most 128 characters long. Please try again." );
   }
 
+
 };
+
 
 
 </script>
