@@ -46,19 +46,19 @@
 
 $("#login").click(function(){
   console.log("login clicked");
-  username = $("#username");
-  password = $("#password");
+  username = $("#username").val();
+  password = $("#password").val();
   $.post("/users/login/", {user: username, password: password}, 
     function(data){
       console.log("reached handleloginresponse");
       alert(data);
-    }, 'json');
+      }, 'json');
 });
 
 $("#add").click(function(){
   console.log("add clicked");
-  username = $("#username");
-  password = $("#password");
+  username = $("#username").val();
+  password = $("#password").val();
   $.post("/users/add/", {user: username, password: password}, 
 
     function(data){
