@@ -44,9 +44,6 @@
 
 
 
-
-
-
 $("#login").click(function(){
   console.log("login clicked");
   username = $("#username").val();
@@ -64,7 +61,7 @@ $("#add").click(function(){
   password = $("#password").val();
   $.post("/users/add/", {user: username, password: password}, 
 
-    function(String(data)){
+    function(String(data){
       console.log("reached handleaddresponse");
 
       alert(data);
