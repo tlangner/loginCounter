@@ -50,10 +50,9 @@ var loginClick = function(){
   $.post("/users/login/", {user: username, password: password}, 
     function(data){
 
-      handleLoginResponse(username,data);
+      return handleLoginResponse(username,data);
 
-      alert(data.errCode);
-      return false;
+      //alert(data.errCode);
       }, 'json');
   return false;
 };
@@ -68,7 +67,7 @@ var addClick = function(){
   $.post("/users/add/", {user: username, password: password}, 
     function(data){
       console.log("reached handleaddresponse");
-      alert(data.errCode);
+      //alert(data.errCode);
       return false;
     }, 'json');
   return false;
