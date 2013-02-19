@@ -24,7 +24,9 @@
 <script type="text/javascript">
 $(document).ready(function (response) {
   //Uncheck the inputs
-  $('#logout-button').hide();
+  console.log("reached document.ready");
+  document.getElementById("logout-button").style.visibility = "hidden";
+  //$('#logout-button').hide();
   $('#welcome-message').html("Please enter your credentials below");
 
 });
