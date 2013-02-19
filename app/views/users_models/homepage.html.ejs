@@ -40,25 +40,27 @@
 
 
 var handleloginresponse = function(data){
-
+  console.log("reached handleloginresponse");
   alert(data);
 
 };
 
 var handleaddresponse = function(data){
+    console.log("reached handleaddresponse");
+
    alert(data);
 };
 
 $("#login").click(function(){
   username = $("#username");
   password = $("#password");
-  $.post("/users/login/", {user: username, password: password},handleloginresponse);
+  $.post("/users/login/", {user: username, password: password},handleloginresponse, 'json');
 });
 
 $("#add").click(function(){
   username = $("#username");
   password = $("#password");
-  $.post("/users/add/", {user: username, password: password},handleaddresponse);
+  $.post("/users/add/", {user: username, password: password},handleaddresponse, 'json');
 });
 
 
