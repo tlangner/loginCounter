@@ -84,15 +84,9 @@ input,
 select,
 textarea {
   margin: 0;
-  font-size: 80%;
+  font-size: 100%;
   vertical-align: middle;
 }
-
-/*button,
-input {
-  *overflow: visible;
-  line-height: normal;
-}*/
 
 button,
 input {
